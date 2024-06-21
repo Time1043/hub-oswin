@@ -61,8 +61,8 @@ def chat_get_start():
     if submit_chat_start:
         st.write(user_input)
 
-        openai_api_key = st.session_state.key_openai_proxy["OPENAI_API_KEY"]
-        base_url = st.session_state.key_openai_proxy["BASE_URL"]
+        openai_api_key = st.session_state.openai_proxy_key["OPENAI_API_KEY"]
+        base_url = st.session_state.openai_proxy_key["BASE_URL"]
 
         chat_openai_proxy(openai_api_key, base_url, user_input)
 

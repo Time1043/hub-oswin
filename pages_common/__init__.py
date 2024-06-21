@@ -1,8 +1,8 @@
 import streamlit as st
 
 # session state initialization (api keys)
-if "key_openai_proxy" not in st.session_state:
-    st.session_state.key_openai_proxy = {
+if "openai_proxy_key" not in st.session_state:
+    st.session_state.openai_proxy_key = {
         "OPENAI_API_KEY": "",
         "BASE_URL": ""
     }
@@ -55,9 +55,9 @@ def get_key_config():
 
         submit_key_config_openai_proxy = st.button("Submit key config for OpenAI proxy")
         if submit_key_config_openai_proxy:
-            st.session_state.key_openai_proxy["OPENAI_API_KEY"] = openai_api_key
-            st.session_state.key_openai_proxy["BASE_URL"] = "https://api.aigc369.com/v1"
-            print(st.session_state.key_openai_proxy)
+            st.session_state.openai_proxy_key["OPENAI_API_KEY"] = openai_api_key
+            st.session_state.openai_proxy_key["BASE_URL"] = "https://api.aigc369.com/v1"
+            print(st.session_state.openai_proxy_key)
 
     elif key_type == "xunfei":
         app_id = st.text_input("APP ID")

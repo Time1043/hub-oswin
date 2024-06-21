@@ -14,7 +14,7 @@ from prompt_template.red_booklet_article_template import system_template_text, u
 
 def generate_video_script(
         subject, video_length, creativity,
-        key_openai_proxy
+        openai_proxy_key
 ):
     """
     Get video title (Prompt Template)
@@ -23,7 +23,7 @@ def generate_video_script(
     :param subject:
     :param video_length:
     :param creativity:
-    :param key_openai_proxy:
+    :param openai_proxy_key:
     :return:
     """
 
@@ -53,7 +53,7 @@ def generate_video_script(
 
     # Call the OpenAI API
     model = ChatOpenAI(
-        openai_api_key=key_openai_proxy,
+        openai_api_key=openai_proxy_key,
         openai_api_base="https://api.aigc369.com/v1",
         temperature=creativity
     )
@@ -80,12 +80,12 @@ def generate_video_script(
 
 def generate_red_booklet_article(
         theme,
-        key_openai_proxy
+        openai_proxy_key
 ):
     """
     Generate a red booklet article and 5 titles (Prompt Template)
     :param theme:
-    :param key_openai_proxy:
+    :param openai_proxy_key:
     :return:
     """
 
@@ -94,7 +94,7 @@ def generate_red_booklet_article(
         ("user", user_template_text)
     ])
 
-    model = ChatOpenAI(model="gpt-3.5-turbo", api_key=key_openai_proxy, openai_api_base="https://api.aigc369.com/v1")
+    model = ChatOpenAI(model="gpt-3.5-turbo", api_key=openai_proxy_key, openai_api_base="https://api.aigc369.com/v1")
     output_parser = PydanticOutputParser(pydantic_object=RedBookletArticle)
 
     chain = prompt | model | output_parser
@@ -107,18 +107,18 @@ def generate_red_booklet_article(
 
 def get_chat_response(
         prompt, memory,
-        key_openai_proxy
+        openai_proxy_key
 ):
     """
     Conversations with memories
     :param prompt:
     :param memory:
-    :param key_openai_proxy:
+    :param openai_proxy_key:
     :return:
     """
     model = ChatOpenAI(
         model="gpt-3.5-turbo",
-        openai_api_key=key_openai_proxy,
+        openai_api_key=openai_proxy_key,
         openai_api_base="https://api.aigc369.com/v1"
     )
     chain = ConversationChain(llm=model, memory=memory)

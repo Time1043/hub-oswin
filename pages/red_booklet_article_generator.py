@@ -6,7 +6,7 @@ from service.to_openai_proxy import generate_red_booklet_article
 
 # sidebar
 with st.sidebar:
-    key_openai_proxy = st.text_input("Enter your OpenAI API keys:", type="password")
+    openai_proxy_key = st.text_input("Enter your OpenAI API keys:", type="password")
     st.markdown("[Get the OpenAI API key](https://platform.openai.com/account/api-keys)")
 
 # user input
@@ -14,8 +14,8 @@ st.header("AI writing assistant for red booklet ✏️")
 theme = st.text_input("theme")
 submit = st.button("start writing")
 
-# service call (key_openai_proxy, theme)
-if submit and not key_openai_proxy:
+# service call (openai_proxy_key, theme)
+if submit and not openai_proxy_key:
     st.info("Please enter your OpenAI API keys in the sidebar to use this feature.")
     st.stop()
 if submit and not theme:
@@ -24,7 +24,7 @@ if submit and not theme:
 if submit:
     with st.spinner("AI writing assistant is generating the article..."):
         try:
-            result = generate_red_booklet_article(theme, key_openai_proxy)
+            result = generate_red_booklet_article(theme, openai_proxy_key)
         except Exception as err:
             st.error(f"Error: {err}")
             st.stop()

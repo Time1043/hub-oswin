@@ -7,7 +7,7 @@ from service.to_openai_proxy import generate_video_script
 
 # sidebar
 with st.sidebar:
-    key_openai_proxy = st.text_input("Enter your OpenAI API keys:", type="password")
+    openai_proxy_key = st.text_input("Enter your OpenAI API keys:", type="password")
     st.markdown("[Get the OpenAI API key](https://platform.openai.com/account/api-keys)")
 
 # user input
@@ -20,8 +20,8 @@ creativity = st.slider(
 )
 submit = st.button("Generate Video Script")
 
-# service call (key_openai_proxy, subject)
-if submit and not key_openai_proxy:
+# service call (openai_proxy_key, subject)
+if submit and not openai_proxy_key:
     st.info("Please enter your OpenAI API keys in the sidebar to use this feature.")
     st.stop()
 if submit and not subject:
@@ -30,7 +30,7 @@ if submit and not subject:
 if submit:
     with st.spinner("AI is thinking, please hold on..."):
         try:
-            search_results, title, script = generate_video_script(subject, video_length, creativity, key_openai_proxy)
+            search_results, title, script = generate_video_script(subject, video_length, creativity, openai_proxy_key)
         except Exception as err:
             st.error(f"An error occurred: {err}")
             st.stop()

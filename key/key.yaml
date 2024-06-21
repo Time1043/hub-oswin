@@ -1,0 +1,15 @@
+openai-proxy:
+  OPENAI_API_KEY: sk-zJYHgEtQjhvfySfPE72fDdD6Ed104d36Ba91413c0b22DcC1
+moonshot-ai:
+  KIMI_API_KEY: sk-bx4zgNyPGz60lctnZJ68g7xjphUgXyb4LJRHBvTUkxdUcSyd
+
+spark:
+  APPID: e7d24d8c
+  APISecret: OTk4NTRjNDRmZGVjYmY3ODdhMWM1Zjdl
+  APIKey: d5170c4bcab21067a88dd5a70b51cbcf
+zhipuai:
+  APIKey: a35125542b9fbb7e1776ac1012166e30.1M0DaXeJ28UAUYuo
+qianfan:
+  AppID: 59525789
+  APIKey: YCgTw4AOClxo5l5MGxP61eLw
+  SecretKey: umMXKrKTjAd1AQ0UIjiyM16oCp1l9ACH
